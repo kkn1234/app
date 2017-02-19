@@ -1,0 +1,67 @@
+<!--Start Navbar  -->
+<div class="navbar-wrapper" >
+    <div class="container">
+
+      <nav class="navbar navbar-inverse navbar-static-top">
+        <div class="container">
+          <div class="navbar-header">
+            <a class="navbar-brand navfontfamily" href="#!/">
+              Studi<i class="fa fa fa-play-circle-o icon-tby" aria-hidden="true"></i>Buzz</a>
+          </div>
+        </div>
+      </nav>
+
+    </div>
+  </div>
+<!-- End Navbar -->
+
+<!-- Start form -->
+<div class=" margintop loginpaddingtop row">
+  <div class="well well-sm loginform wellborder panel-shadow loginpaddingtop col-xs-8 col-sm-8 col-md-4 col-md-offset-4 col-xs-offset-2 col-sm-offset-2">
+    <div class="membershipterms">
+      <h4 class="headingColor text-center">Bank Account Details</h4>
+    <div ng-show="model.error" class="text-center alert alert-danger" role="alert">
+      {{model.errorMsg}}
+    </div>
+
+    <form ng-submit="model.addAccountInfo()">
+      <div class="form-group">
+        <label for="accountname">Payee Account Name</label>
+        <input required type="text" ng-model="model.account.payeeName" id="accountname" name="accountname" placeholder="Enter account holder name" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="accountnumber">Account Number</label>
+        <input required type="number" ng-model="model.account.number" id="accountnumber" name="accountnumber" placeholder="Enter account number" class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label for="bankname">Bank Name</label>
+        <input required type="text" id="bankname" ng-model="model.account.bank" name="bankname" placeholder="Enter bank name" class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label for="ifsccode">IFSC Code</label>
+        <input required type="text" id="ifsccode" ng-model="model.account.code" name="ifsccode" placeholder="Enter IFSC branch code" class="form-control">
+      </div>
+
+      <button ng-disabled="model.submitBtn" type="submit" class="marginall btn btn-primary">Submit</button>
+      <button type="button" ng-click="model.cancelAccountInfo()" class="marginall btn btn-danger">Cancel</button>
+    </form>
+
+    </div>
+  </div>
+</div>
+
+<!-- End form -->
+
+
+
+<!--footer start from here-->
+  <div class="footer ">
+
+    <p class="footercontent pull-right">&copy; 2017 StudioBuzz. All rights reserved |
+        <a class="membershiplogin marginall cursorpointer" href="#!/privacy-policy">Privacy policy</a>&nbsp;|
+         <a class="membershiplogin marginall cursorpointer" href="#!/terms-service">Terms of service</a> &nbsp;
+          &nbsp;</p>
+  </div>
+<!--footer end from here-->

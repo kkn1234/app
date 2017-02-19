@@ -1,0 +1,602 @@
+body{
+
+  background:#d9d9d9 url("../assets/images/bg.gif") center top repeat-x;
+  font-family: 'Roboto', sans-serif;
+  margin: 5px;
+  overflow-x: hidden;
+    margin-bottom: 60px;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
+
+.defaultBtn{
+color: #f5f5f5;
+background-color: #444;
+border-color: #444;
+}
+
+/*Start comment*/
+
+.widget-area {
+    background-color: #fff;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+    border-radius: 4px;
+    -webkit-box-shadow: 0 0 16px rgba(0, 0, 0, 0.05);
+    -moz-box-shadow: 0 0 16px rgba(0, 0, 0, 0.05);
+    -ms-box-shadow: 0 0 16px rgba(0, 0, 0, 0.05);
+    -o-box-shadow: 0 0 16px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 0 16px rgba(0, 0, 0, 0.05);
+    float: left;
+    margin-top: 30px;
+    padding: 25px 30px;
+    position: relative;
+    width: 100%;
+}
+
+.status-upload {
+    background: none repeat scroll 0 0 #f5f5f5;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+    border-radius: 4px;
+    float: left;
+    width: 100%;
+}
+.status-upload form {
+    float: left;
+    width: 100%;
+}
+.status-upload form textarea {
+    background: none repeat scroll 0 0 rgba(221, 221, 221, 0.36);
+    border: medium none;
+    -webkit-border-radius: 4px 4px 0 0;
+    -moz-border-radius: 4px 4px 0 0;
+    -ms-border-radius: 4px 4px 0 0;
+    -o-border-radius: 4px 4px 0 0;
+    border-radius: 4px 4px 0 0;
+    color: #777777;
+    float: left;
+    font-family: Lato;
+    font-size: 18px;
+    height: 142px;
+    letter-spacing: 0.3px;
+    padding: 20px;
+    width: 100%;
+    resize:vertical;
+    outline:none;
+    border: 1px solid #F2F2F2;
+}
+
+.status-upload ul {
+    float: left;
+    list-style: none outside none;
+    margin: 0;
+    padding: 0 0 0 15px;
+    width: auto;
+}
+.status-upload ul > li {
+    float: left;
+}
+.status-upload ul > li > a {
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+    border-radius: 4px;
+    color: #777777;
+    float: left;
+    font-size: 14px;
+    height: 30px;
+    line-height: 30px;
+    margin: 10px 0 10px 10px;
+    text-align: center;
+    -webkit-transition: all 0.4s ease 0s;
+    -moz-transition: all 0.4s ease 0s;
+    -ms-transition: all 0.4s ease 0s;
+    -o-transition: all 0.4s ease 0s;
+    transition: all 0.4s ease 0s;
+    width: 30px;
+    cursor: pointer;
+}
+.status-upload ul > li > a:hover {
+    background: none repeat scroll 0 0 #606060;
+    color: #fff;
+}
+.status-upload form button {
+    border: medium none;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    -ms-border-radius: 4px;
+    -o-border-radius: 4px;
+    border-radius: 4px;
+    color: #fff;
+    float: right;
+    font-family: Lato;
+    font-size: 14px;
+    letter-spacing: 0.3px;
+    margin-right: 9px;
+    margin-top: 9px;
+    padding: 6px 15px;
+}
+.dropdown > a > span.green:before {
+    border-left-color: #2dcb73;
+}
+.status-upload form button > i {
+    margin-right: 7px;
+}
+
+
+.panel-white {
+    border: 1px solid #dddddd;
+}
+.panel-white  .panel-heading {
+    color: #333;
+    background-color: #fff;
+    border-color: #ddd;
+}
+.panel-white  .panel-footer {
+    background-color: #fff;
+    border-color: #ddd;
+}
+
+.post .post-heading {
+    height: 95px;
+    padding: 20px 15px;
+}
+.post .post-heading .avatar {
+    width: 60px;
+    height: 60px;
+    display: block;
+    margin-right: 15px;
+}
+.post .post-heading .meta .title {
+    margin-bottom: 0;
+}
+.post .post-heading .meta .title a {
+    color: black;
+}
+.post .post-heading .meta .title a:hover {
+    color: #aaaaaa;
+}
+.post .post-heading .meta .time {
+    margin-top: 8px;
+    color: #999;
+}
+.post .post-image .image {
+    width: 100%;
+    height: auto;
+}
+.post .post-description {
+    padding: 15px;
+}
+.post .post-description p {
+    font-size: 16px;
+}
+.post .post-footer {
+    border-top: 1px solid #ddd;
+    padding: 15px;
+}
+.post .post-footer .input-group-addon a {
+    color: #454545;
+}
+.post .post-footer .comments-list {
+    padding: 0;
+    margin-top: 20px;
+    list-style-type: none;
+}
+.post .post-footer .comments-list .comment {
+    display: block;
+    width: 100%;
+    margin: 20px 0;
+}
+.post .post-footer .comments-list .comment .avatar {
+    width: 35px;
+    height: 35px;
+}
+.post .post-footer .comments-list .comment .comment-heading {
+    display: block;
+    width: 100%;
+}
+.post .post-footer .comments-list .comment .comment-heading .user {
+    font-size: 16px;
+    font-weight: bold;
+    display: inline;
+    margin-top: 0;
+    margin-right: 10px;
+}
+.post .post-footer .comments-list .comment .comment-heading .time {
+    font-size: 14px;
+    color: #aaa;
+    margin-top: 0;
+    display: inline;
+}
+.post .post-footer .comments-list .comment .comment-body {
+    margin-left: 50px;
+}
+.post .post-footer .comments-list .comment > .comments-list {
+    margin-left: 50px;
+}
+
+.comment-shadow {
+    box-shadow: rgba(0, 0, 0, 0.3) 7px 7px 7px;
+}
+
+/*End comment*/
+
+
+.moviewatch-title {
+    min-height: 300px;
+    display: inline-flex;
+
+}
+
+.imgPaddingThumb{
+    padding: 25px;
+}
+.imgBorderThumb{
+    border: 1px solid #d9d9d9;
+}
+
+/*start movie nav-tabs*/
+
+.nav-tabs > li > a {
+
+    border: none;
+    border-radius: 0;
+    font-size: 14px;
+    color: #5d5a5a;
+    padding: 10px 5px;
+    -webkit-transition: all 0.3s ease-in-out 0s;
+    -o-transition: all 0.3s ease-in-out 0s;
+    transition: all 0.3s ease-in-out 0s;
+}
+
+.nav-tabs>li.active>a{
+    background-color: rgba(157, 157, 157, 0.2);
+}
+
+
+.nav-tabs>li.active>a:hover{
+    background-color: rgba(157, 157, 157, 0.2);
+}
+
+
+.nav-tabs>li>a:hover{
+    background-color: rgba(157, 157, 157, 0.2);
+}
+
+
+.nav-tabs > li > a {
+    margin-right: 2px;
+    /*line-height: 1.42857143;*/
+    border: 1px solid #5d5a5a;
+    border-radius: 4px 4px 0 0;
+}
+
+.marginleft{
+    margin-left: 25px;
+}
+
+.nav-search{
+    background-color: #101010;
+    border: 1px solid #101010;
+    color: #9d9d9d;
+}
+
+/* -------------------- Rounded Corners */
+.searchselect{
+    height: 29px;
+    overflow: hidden;
+    width: 240px;
+    margin-top: 5px;
+    margin-left: 2px;
+}
+
+.searchselect select {
+    background: transparent;
+    border: none;
+    font-size: 14px;
+    height: 29px;
+    padding: 5px; /* If you add too much padding here, the options won't show in IE */
+    width: 268px;
+}
+
+.searchselectrounded {
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+}
+/* -------------------- Colors: Background */
+.searchselectblack   { background-color: #cdcdcd; }
+.searchselectblack select   { color: #000; }
+
+li.movieformsearch{
+    margin-right: 10px;
+    margin-top: 5px;
+}
+
+.movieformsearch input{
+    background-color: #cdcdcd;
+    border: 1px solid #5d5a5a;
+}
+/*end movie nav-tabs*/
+
+.imageshadow{
+    /*box-shadow: 10px 10px 5px #888888;*/
+    box-shadow: rgba(0, 0, 0, 0.3) 7px 7px 7px;
+}
+
+.fontfeatured{
+    font-size: 19px;
+}
+
+.marginfeatured{
+    margin-top: 20px;
+}
+
+
+/*carosel*/
+
+.carousel-indicators li{
+  display: none;
+}
+
+.carousel-inner {
+  height: 360px;
+}
+.text-center {
+  height: 100%;
+  width: 100%;
+}
+.covercarousel {
+  height: 360px;
+}
+.margintopcarousel{
+  margin-top: 80px;
+}
+.covercarousel .item{
+  height: 100%;
+}
+
+.imgwidth{
+  height: 100%;
+  width: 100%;
+}
+
+/*start play on hover*/
+
+/*Start Cover carousel play icon*/
+.coverplay{
+    font-size: 50px;
+    color: #68b268;
+}
+.covercaption{
+    bottom: -85px;
+    transition: all 300ms ease-out;
+}
+.coverwatch:hover .covercaption{
+    bottom: 10px;
+}
+
+/*End Cover carousel play icon*/
+
+/*Start play on hover*/
+.figureimg{
+    margin: 0px;
+    width: 182px;
+    position: relative;
+    overflow: hidden;
+}
+.figureplay{
+    font-size: 40px;
+    color: #68b268;
+    margin-top: 95px;
+}
+.thumbimg{
+    display: block;
+}
+.figcap{
+    /*padding: 2em;*/
+    height: 100%;
+    background-color: rgba(8,8,8,0.5);
+
+    position: absolute;
+    width: 100%;
+    bottom: 0px;
+    right: -182px;
+
+    transition: all 300ms ease-out;
+}
+
+.figureimg:hover .figcap{
+    right: 0px;
+}
+
+/*End play on hover*/
+
+/*Login page*/
+.loginheight{
+  height: 210px;
+}
+.loginform {
+   margin-top: 30px;
+ }
+.margintop{
+  margin-top: 95px;
+}
+.loginpaddingtop{
+  padding-top: 5px;
+}
+.membershiplogin {
+  text-decoration: none;
+  color: #5a5a5a;
+}
+
+.membershiplogin:hover{
+  text-decoration: none;
+}
+  .marginall{
+    margin: 3px;
+  }
+
+  .wellborder{
+      border: 3px solid #ccc;
+      border-radius: 10px;
+  }
+  .panel-shadow {
+box-shadow: inset #f5f5f5 0px 0px 12px 2px;
+/*inset #f5f5f5 0px 0px 12px 2px*/
+}
+.headingColor{
+  color: #555;
+}
+.membershipterms{
+  margin: 10px;
+}
+
+.membershiptermstop{
+  margin-top: 50px;
+}
+
+  /*Login page*/
+
+/*slick image slider*/
+#content{
+padding-top: 120px;
+text-align: center;
+}
+
+.landborderthumb{
+  padding: 1px;
+  margin: auto;
+  width: 200px;
+}
+
+.fontsize{
+  font-size: 19px;
+}
+
+/*Start sticky footer*/
+.footer {
+position: fixed;
+height: 40px;
+bottom: 0px;
+width: 100%;
+background-color: rgba(204, 204, 204, 0.63);
+}
+
+.footercontent{
+  margin-top: 14px;
+  margin-right: 12px;
+  font-size: 16px;
+  color: #777;
+}
+.footercontent a{
+  color: #777;
+}
+/*End sticky footer*/
+
+/* CUSTOMIZE THE NAVBAR
+-------------------------------------------------- */
+
+/* Special class on .container surrounding .navbar, used for positioning it into place. */
+.navbar-wrapper {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 20;
+}
+
+/* Flip around the padding for proper display in narrow viewports */
+.navbar-wrapper > .container {
+  padding-right: 0;
+  padding-left: 0;
+}
+.navbar-wrapper .navbar {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+.navbar-wrapper .navbar .container {
+  width: auto;
+}
+
+.navbar-inverse .navbar-nav>li>a {
+  color: #9d9d9d;
+  font-size: 16px;
+}
+
+/* RESPONSIVE CSS
+-------------------------------------------------- */
+
+@media (min-width: 768px) {
+  /* Navbar positioning foo */
+  .navbar-wrapper {
+    margin-top: 20px;
+  }
+  .navbar-wrapper .container {
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+  .navbar-wrapper .navbar {
+    padding-right: 0;
+    padding-left: 0;
+  }
+
+  /* The navbar becomes detached from the top, so we round the corners */
+  .navbar-wrapper .navbar {
+    border-radius: 4px;
+  }
+
+  .featurette-heading {
+    font-size: 50px;
+  }
+}
+
+@media (min-width: 992px) {
+  .featurette-heading {
+    margin-top: 120px;
+  }
+}
+
+
+.navfontfamily{
+  font-family: 'Roboto', sans-serif;
+  font-size: 20px;
+  padding-right: 2px;
+}
+
+.cursorpointer{
+  cursor: pointer;
+}
+
+
+.icon-tby{
+  /*padding-right: 2px;*/
+  /*margin-top: 1px;*/
+  /*color: #5cb85c;*/
+ color: #5192b2;
+    font-size: 16px;
+}
+
+.navbar-inverse .navbar-text{
+  color: #337ab7;
+  font-size: 18px;
+}
+
+.navbar-inverse .navbar-brand:focus, .navbar-inverse .navbar-brand:hover {
+    color: #d9d9d9;
+    background-color: transparent;
+}

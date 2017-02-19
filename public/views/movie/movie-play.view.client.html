@@ -1,0 +1,203 @@
+<!--Start Navbar  -->
+<div class="navbar-wrapper" >
+    <div class="container">
+
+        <nav class="navbar navbar-inverse navbar-static-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand navfontfamily cursorpointer" ng-click="model.navMoviesHome()">
+                         Studi<i class="fa fa fa-play-circle-o icon-tby" aria-hidden="true"></i>Buzz</a>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li ><a ng-click="model.navMoviesList()" class="navfontfamily cursorpointer">Movies</a></li>
+                    </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a class="cursorpointer" ng-click="model.navMoviesLogout()">Logout</a></li>
+
+                    </ul>
+
+                </div>
+            </div>
+        </nav>
+
+    </div>
+</div>
+<!-- End Navbar -->
+
+
+
+<!-- videogular  -->
+
+<div class="margintop">
+    <div class="container">
+        <div class="row">
+            <div class="videogular-container col-xs-12">
+                <videogular vg-theme="model.config.theme.url"
+                            vg-Complete = 'model.mediaCompleted()'
+                            vg-player-ready="model.onPlayerReady($API)">
+                    <vg-media vg-src="model.config.sources" vg-tracks="model.config.tracks">
+                    </vg-media>
+
+                        <vg-overlay-play></vg-overlay-play>
+
+                    <vg-controls vg-autohide="model.config.plugins.controls.autoHide" vg-autohide-time="model.config.plugins.controls.autoHideTime">
+                        <vg-play-pause-button></vg-play-pause-button>
+                        <vg-time-display>{{ currentTime | date:'HH:mm:ss':'UTC' }}</vg-time-display>
+                        <vg-scrub-bar>
+                            <vg-scrub-bar-current-time></vg-scrub-bar-current-time>
+                        </vg-scrub-bar>
+                        <vg-time-display>{{ timeLeft | date:'HH:mm:ss' : 'UTC' }}</vg-time-display>
+                        <vg-volume>
+                            <vg-mute-button></vg-mute-button>
+                            <vg-volume-bar></vg-volume-bar>
+                        </vg-volume>
+                        <vg-fullscreen-button></vg-fullscreen-button>
+                    </vg-controls>
+
+                    <vg-buffering></vg-buffering>
+                    <vg-poster vg-url='model.config.plugins.posterImage'></vg-poster>
+                </videogular>
+                <!--  videogular-container-->
+            </div>
+        </div>
+        <!-- container-fluid  -->
+    </div>
+    <!-- margintop -->
+</div>
+
+
+
+
+
+<!-- Start Movie description -->
+<div class="container margintop">
+    <div class="row">
+        <div class="col-xs-12 well well-sm">
+            <div class="row">
+
+                <div class="col-sm-4 col-md-4">
+                    <div class="marginall imgPaddingThumb">
+                        <img ng-src="{{model.image}}" class="imgBorderThumb" width='182' height="268">
+                    </div>
+
+                </div>
+                <div class="col-sm-8 col-md-8 text-justify">
+                    <h3><strong>{{model.movie.title}}</strong></h3>
+                    <h4>Description</h4>
+                    <p>{{model.movie.description}}
+                    </p>
+                    <table>
+                        <tr>
+                            <td>Date of Release&nbsp;</td>
+                            <td>
+                                <p>:&nbsp; {{model.movie.created | date: 'dd-MM-yyyy'}}</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Actors&nbsp;</td>
+                            <td>
+                                <p>:&nbsp; {{model.movie.cast}}</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Views</td>
+                            <td>&nbsp;{{model.movie.views}}</td>
+                        </tr>
+
+                        <tr>
+                            <td>&nbsp;</td>
+                            <td>
+                                <p>&nbsp;</p>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Rating</td>
+                            <td>
+                                <p>
+                                    <ng-rate-it ng-init="model.movieRatingInit()" ng-model="model.movieRating" read-only='true'></ng-rate-it>
+                                </p>
+                            </td>
+                        </tr>
+                    </table>
+                    <br>
+                    <h4>Your review</h4>
+                    <ng-rate-it ng-click="model.userReview(model.userRating)" ng-model="model.userRating" read-only='model.ratingflag'></ng-rate-it>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Movie description -->
+
+<!--FB comment box-->
+
+
+    <!--	comment box-->
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <div class="widget-area">
+                    <div class="status-upload">
+                        <form ng-submit="model.comentBox(model.text)">
+                            <textarea ng-model="model.text" placeholder="Comment here..."></textarea>
+
+                            <button type="submit" class="btn btn-success green">
+                                <i class="glyphicon glyphicon-comment"></i>Comment</button>
+                        </form>
+                    </div>
+                    <!-- Status Upload  -->
+                </div>
+                <!-- Widget Area -->
+                <br>
+
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-8 col-sm-offset-2"
+                 ng-repeat="comment in model.commentArray track by comment._id | orderBy:'-created'">
+                <div class="panel panel-white post comment-shadow">
+                    <div class="post-heading">
+                        <div class="pull-left image">
+                            <span class="glyphicon glyphicon-user img-circle avatar fontsize"></span>
+                        </div>
+                        <div class="pull-left meta">
+                            <div class="title h5">
+                                <a><b>{{comment.username}}</b></a> made a comment.
+                            </div>
+                            <h6 class="text-muted time">{{comment.created | date : 'hh:mm:a' }}</h6>
+                        </div>
+                    </div>
+                    <div class="post-description">
+                        <p>{{comment.comment}}</p>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /container -->
+
+    <!--	End comment box-->
+
+
+<!--footer start from here-->
+<div class="footer ">
+
+    <p class="footercontent pull-right">&copy; 2017 StudioBuzz. All rights reserved
+        &nbsp;</p>
+</div>
+<!--footer end from here-->

@@ -1,0 +1,51 @@
+<!--Start Navbar  -->
+<div class="navbar-wrapper" >
+    <div class="container">
+
+      <nav class="navbar navbar-inverse navbar-static-top">
+        <div class="container">
+          <div class="navbar-header">
+            <a class="navbar-brand navfontfamily" href="#!/">
+                Studi<i class="fa fa fa-play-circle-o icon-tby" aria-hidden="true"></i>Buzz</a>
+          </div>
+        </div>
+      </nav>
+
+    </div>
+  </div>
+<!-- End Navbar -->
+
+<!-- Start Login form -->
+<div class=" margintop loginpaddingtop row">
+  <div class="well well-sm loginform loginheight wellborder panel-shadow loginpaddingtop col-xs-8 col-sm-8 col-md-6 col-md-offset-3 col-xs-offset-2 col-sm-offset-2">
+    <div class="loginform">
+      <h3 class="marginall text-center headingColor">Welcome to StudioBuzz</h3>
+        <div ng-show="model.error" class="text-center alert alert-danger" role="alert">
+            {{model.errorMsg}}
+        </div>
+        <br>
+      <div class="text-center">
+          <h4 class="marginall">Thanks for choosing StudioBuzz as your prime partner.
+            Please login to access members area.</h4>
+        <br>
+
+          <a ng-click="model.loginClick()"
+          class="btn btn-primary btn-md">
+            <i class="fa fa-facebook-square" aria-hidden="true"></i>&nbsp;Login with Facebook</a>
+
+      </div>
+    </div>
+    </div>
+</div>
+
+<!-- End Login form -->
+
+<!--footer start from here-->
+  <div class="footer ">
+
+    <p class="footercontent pull-right">&copy; 2017 StudioBuzz. All rights reserved |
+        <a class="membershiplogin marginall cursorpointer" href="#!/privacy-policy">Privacy policy</a>&nbsp;|
+         <a class="membershiplogin marginall cursorpointer" href="#!/terms-service">Terms of service</a> &nbsp;
+          &nbsp;</p>
+  </div>
+<!--footer end from here-->

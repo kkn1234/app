@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="studiobuzz">
+<head>
+  <title>StudioBuzz Movies</title>
+  <base href="/">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="http://cdn.jsdelivr.net/angular.wizard/latest/angular-wizard.min.css">
+    <link rel="stylesheet" href="vendorlib/slick-carousel/slick/slick.css">
+    <link rel="stylesheet" href="vendorlib/slick-carousel/slick/slick-theme.css">
+    <link href="vendorlib/angular-rateit/dist/ng-rateit.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/membership.css">
+    <link rel="icon" href="css/logo/favicon.png">
+
+
+</head>
+
+<body class="ng-cloak">
+
+  <div ng-view></div>
+
+
+  <!-- vendor lib CDN -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js" charset="utf-8"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-route.min.js" charset="utf-8"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-animate.min.js" charset="utf-8"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.4.0/ui-bootstrap-tpls.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular-sanitize.min.js"></script>
+  <script type="text/javascript" src="http://cdn.jsdelivr.net/angular.wizard/latest/angular-wizard.min.js"></script>
+
+  <!-- vendor lib app -->
+  <script src="vendorlib/angular-facebook.min.js"></script>
+  <script src="vendorlib/ng-file-upload.js"></script>
+  <script src="vendorlib/slick-carousel/slick/slick.min.js"></script>
+  <script src="vendorlib/angular-slick/dist/slick.min.js"></script>
+  <script src="vendorlib/angular-thumbnail/angular-thumbnail.js"></script>
+  <script src="http://static.videogular.com/scripts/videogular/latest/videogular.js"></script>
+  <script src="http://static.videogular.com/scripts/controls/latest/vg-controls.js"></script>
+  <script src="http://static.videogular.com/scripts/overlay-play/latest/vg-overlay-play.js"></script>
+  <script src="http://static.videogular.com/scripts/poster/latest/vg-poster.js"></script>
+  <script src="http://static.videogular.com/scripts/buffering/latest/vg-buffering.js"></script>
+  <script src="vendorlib/videogular/videogular.min.js"></script>
+  <script src="vendorlib/videogular/vg-controls.min.js"></script>
+  <script src="vendorlib/videogular/vg-overlay-play.min.js"></script>
+  <script src="vendorlib/videogular/vg-poster.min.js"></script>
+  <script src="vendorlib/videogular/vg-buffering.min.js"></script>
+  <script src="vendorlib/angular-rateit/dist/ng-rateit.js"></script>
+
+
+
+
+  <!-- Application -->
+  <script src="app.js"></script>
+  <script src="config.js" charset="utf-8"></script>
+  <!-- Controller -->
+  <script src="views/user/default.controller.client.js"></script>
+  <script src="views/membership/membership-Login.controller.client.js"></script>
+  <script src="views/membership/membership-terms.controller.client.js"></script>
+  <script src="views/membership/membership-account.controller.client.js"></script>
+  <script src="views/dashboard/dashboard-home.controller.client.js"></script>
+  <script src="views/dashboard/dashboard-upload.controller.client.js"></script>
+  <script src="views/dashboard/dashboard-report.controller.client.js"></script>
+  <script src="views/dashboard/dashboard-payment.controller.client.js"></script>
+  <script src="views/home/movie-home.controller.client.js"></script>
+  <script src="views/movie/movies-list.controller.client.js"></script>
+  <script src="views/movie/movie-pay.controller.client.js"></script>
+  <script src="views/movie/movie-pay-success.controller.client.js"></script>
+  <script src="views/movie/movie-play.controller.client.js"></script>
+
+
+  <!--Services-->
+  <script src="services/membership-user.service.client.js"></script>
+  <script src="services/movie.service.client.js"></script>
+  <script src="services/user.service.client.js"></script>
+  <script src="services/payment.service.client.js"></script>
+  <script src="services/rating.service.client.js"></script>
+  <script src="services/comment.service.client.js"></script>
+
+</body>
+</html>

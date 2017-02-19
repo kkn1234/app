@@ -1,0 +1,19 @@
+{
+  "name": "studiobuzz",
+  "version": "1.0.0",
+  "description": "on demand movie streaming website.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Kiran",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.16.0",
+    "connect-multiparty": "^2.0.0",
+    "express": "^4.14.1",
+    "instamojo-nodejs": "0.0.5",
+    "knox": "^0.9.2",
+    "mongoose": "^4.8.1"
+  }
+}

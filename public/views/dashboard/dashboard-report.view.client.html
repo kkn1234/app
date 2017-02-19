@@ -1,0 +1,78 @@
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+
+              <a class="navbar-brand navfontfamily cursorpointer" ng-click="model.navHome()">
+                  Studi<i class="fa fa fa-play-circle-o icon-tby" aria-hidden="true"></i>Buzz</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a ng-click="model.navLogout()" class="cursorpointer">Logout</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- End Navbar -->
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar">
+          <ul class="nav nav-sidebar">
+              <li><a href="#!/dashboard/{{model.userId}}/dashboard-home"><i class="fa fa-tachometer" aria-hidden="true"></i>&nbsp;&nbsp;Overview <span class="sr-only">(current)</span></a></li>
+              <li class="active"><a href="#!/dashboard/{{model.userId}}/dashboard-home/report"><i class="fa fa-list-ul" aria-hidden="true"></i>&nbsp;&nbsp;Revenue report</a></li>
+          </ul>
+
+          <ul class="nav nav-sidebar">
+              <li><a href="#!/dashboard/{{model.userId}}/dashboard-home/payment"><i class="fa fa-inr" aria-hidden="true"></i>&nbsp;&nbsp;Payment request</a></li>
+              <li><a href="#!/dashboard/{{model.userId}}/dashboard-home/upload"><i class="fa fa-upload" aria-hidden="true"></i>&nbsp;&nbsp;Upload</a></li>
+          </ul>
+        </div>
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main margintop">
+
+            <h3 class="text-center dashboardheadingstyle">REVENUE REPORT</h3>
+            <br>
+
+            <div class="row">
+                <div class="col-xs-12 col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1">
+                    <div class="panel panel-body">
+                        <table class="table">
+                            <thead>
+                            <tr class="text-success">
+                                <th>Movie</th>
+                                <th>Views</th>
+                                <th>Upload Date</th>
+                                <th>Estimated Earning</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr class="text-info" ng-repeat = 'movie in model.movies'>
+                                <td>{{movie.title}}</td>
+                                <td>{{movie.views}}</td>
+                                <td>{{movie.created | date: 'dd-MMM-yy'}}</td>
+                                <td>INR {{movie.earning}}</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div><!-- Dashboard -->
+          </div><!-- sidebar -->
+        </div>
+      </div>
+
+
+
+<!--footer start from here-->
+<div class="footer ">
+
+    <p class="footercontent pull-right">&copy; 2017 StudioBuzz. All rights reserved
+        &nbsp;</p>
+</div>
+<!--footer end from here-->

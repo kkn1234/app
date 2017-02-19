@@ -1,0 +1,66 @@
+<!--Start Navbar  -->
+<div class="navbar-wrapper" >
+    <div class="container">
+
+      <nav class="navbar navbar-inverse navbar-static-top">
+        <div class="container">
+          <div class="navbar-header">
+            <a class="navbar-brand navfontfamily" href="#!/">
+                Studi<i class="fa fa fa-play-circle-o icon-tby" aria-hidden="true"></i>Buzz</a>
+          </div>
+        </div>
+      </nav>
+
+    </div>
+  </div>
+<!-- End Navbar -->
+
+
+<!-- Start Carousel -->
+<div class="container">
+    <div class="row margintopcarousel" >
+        <div class='col-sm-12'>
+            <div class="covercarousel coverwatch" uib-carousel active="active" interval="model.myInterval" no-wrap="noWrapSlides">
+                <div uib-slide ng-repeat="slide in model.movie track by $index" index="$index" >
+                    <img class="imgwidth" ng-src="{{slide.cloudCoverUrl}}" style="margin:auto;">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Carousel -->
+
+<!-- Start Slick image slider -->
+<div id="content">
+
+    <!--<div class="row">-->
+        <!--<div class="col-sm-4 col-sm-offset-4">-->
+            <!--<slick init-onload='true' slides-to-show='1' slides-to-scroll='1' fade="true" data="model.movie"-->
+                   <!--class="slider multiple-items landborderthumb" infinite="true"-->
+                   <!--arrows="false" autoplay="true" autoplaySpeed="2000">-->
+                <!--<div ng-repeat="img in model.movie track by $index">-->
+                    <!--<ui-thumbnail class="thumbnail" src="img.cloudThumbUrl" opts="{width: 188, height: 288}"></ui-thumbnail>-->
+                <!--</div>-->
+            <!--</slick>-->
+        <!--</div>-->
+    <!--</div>-->
+    <!--<br>-->
+    <!--<br>-->
+    <span class="fontsize">Now watch movies @ <strong>Studi<i class="fa fa fa-play-circle-o icon-tby" aria-hidden="true"></i>Buzz</strong></span>
+    <br><br>
+    <a ng-click="model.loginWatchNow()" class="btn btn-success btn-lg">Watch Now</a>
+
+</div>
+<!-- End Slick image slider -->
+
+
+<!--footer start from here-->
+  <div class="footer ">
+
+    <p class="footercontent pull-right">&copy; 2017 StudioBuzz. All rights reserved |
+       <a class="membershiplogin marginall cursorpointer" ng-click="model.membershipLogin()">Membership</a> &nbsp;|
+        <a class="membershiplogin marginall cursorpointer" href="#!/privacy-policy">Privacy policy</a>&nbsp;|
+         <a class="membershiplogin marginall cursorpointer" href="#!/terms-service">Terms of service</a> &nbsp;
+          &nbsp;</p>
+  </div>
+<!--footer end from here-->

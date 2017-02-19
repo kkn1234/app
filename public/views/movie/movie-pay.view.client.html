@@ -1,0 +1,147 @@
+<!--Start Navbar  -->
+<div class="navbar-wrapper" >
+    <div class="container">
+
+        <nav class="navbar navbar-inverse navbar-static-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand navfontfamily cursorpointer" ng-click="model.navMoviesHome()">
+                        Studi<i class="fa fa fa-play-circle-o icon-tby" aria-hidden="true"></i>Buzz</a>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li ><a ng-click="model.navMoviesList()" class="navfontfamily cursorpointer">Movies</a></li>
+                    </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a class="cursorpointer" ng-click="model.navMoviesLogout()">Logout</a></li>
+                    </ul>
+
+                </div>
+            </div>
+        </nav>
+
+    </div>
+</div>
+<!-- End Navbar -->
+
+
+
+<!-- Start Movie description -->
+<div class="margintop">
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 moviewatch-title well well-sm wellborder">
+            <div class="row">
+
+                <div class="col-sm-4">
+
+                    <div class="marginall imgPaddingThumb">
+                        <img ng-src="{{model.image}}" class="imgBorderThumb" width='182' height="268">
+                    </div>
+
+
+                </div>
+                <div class="col-sm-8 pull-right">
+                    <h3><strong>{{model.movie.title}}</strong></h3>
+                    <h4>Description</h4>
+
+                    <p>{{model.movie.description}}
+                    </p>
+                    <table class="table-responsive">
+                        <tr>
+                            <td>Date of Release&nbsp;</td>
+                            <td>
+                                <p>:&nbsp; {{model.movie.created | date: 'dd-MM-yyyy'}}</p>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Actors&nbsp;</td>
+                            <td>
+                                <p>:&nbsp; {{model.movie.cast}}</p>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>Views</td>
+                            <td>&nbsp;{{model.movie.views}}</td>
+                        </tr>
+                        <tr>
+                        <!--<tr>-->
+                            <!--<td>&nbsp;</td>-->
+                            <!--<td>-->
+                                <!--<p>&nbsp;</p>-->
+                            <!--</td>-->
+                        <!--</tr>-->
+
+
+                        <td>Rating&nbsp;</td>
+                        <td>
+                            <p>:&nbsp;
+                                <ng-rate-it ng-init="model.getMovieRating()" ng-model="model.movieRating" read-only='true'></ng-rate-it>
+                            </p>
+                        </td>
+                        </tr>
+
+                        <tr>
+                            <td>Price&nbsp;</td>
+                            <td>
+                                <p>:INR&nbsp; {{model.movie.price}}</p>
+                            </td>
+                        </tr>
+
+                    </table>
+                    <a ng-click="model.playMovie(model.movie)" class="btn btn-success btn-lg">Watch - INR{{model.movie.price}}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<!-- End Movie description -->
+
+
+
+<!-- videogular  -->
+
+<div class="margintop">
+    <div class="container">
+        <div class="row">
+            <div class="videogular-container col-xs-12">
+                <videogular vg-theme="model.config.theme.url">
+                    <vg-media vg-src="model.config.sources"
+                            vg-tracks="model.config.tracks">
+                    </vg-media>
+
+
+                    <a ng-click="model.playMovie(model.movie)">
+                        <vg-overlay-play></vg-overlay-play>
+                    </a>
+
+                    <vg-poster vg-url='model.config.plugins.posterImage'></vg-poster>
+                </videogular>
+                <!--  videogular-container-->
+            </div>
+        </div>
+        <!-- container-fluid  -->
+    </div>
+    <!-- margintop -->
+</div>
+
+
+
+
+<!--footer start from here-->
+<div class="footer ">
+
+    <p class="footercontent pull-right">&copy; 2017 StudioBuzz. All rights reserved
+        &nbsp;</p>
+</div>
+<!--footer end from here-->

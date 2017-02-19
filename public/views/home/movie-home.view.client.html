@@ -1,0 +1,210 @@
+<!--Start Navbar  -->
+<div class="navbar-wrapper" >
+    <div class="container">
+
+        <nav class="navbar navbar-inverse navbar-static-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand navfontfamily" ng-click="model.navMoviesHome()">
+                        Studi<i class="fa fa fa-play-circle-o icon-tby" aria-hidden="true"></i>Buzz</a>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li ><a ng-click="model.navMoviesList()" class="navfontfamily cursorpointer">Movies</a></li>
+                    </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#">Logout</a></li>
+                    </ul>
+
+                </div>
+            </div>
+        </nav>
+
+    </div>
+</div>
+<!-- End Navbar -->
+
+
+<!-- Start Carousel -->
+<div class="container">
+    <div class="row margintopcarousel" >
+        <div class='col-sm-12'>
+            <div class="covercarousel coverwatch" uib-carousel active="active" interval="model.myInterval" no-wrap="noWrapSlides">
+                <div uib-slide ng-repeat="slide in model.movie track by $index" index="$index" >
+                    <img class="imgwidth" ng-src="{{slide.cloudCoverUrl}}" style="margin:auto;">
+                    <div class="carousel-caption covercaption">
+                        <a ng-click="model.watchMovieById(slide._id)" class="pull-right cursorpointer"><span class="glyphicon glyphicon-play-circle coverplay"></span></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Carousel -->
+
+<!-- Start featured list -->
+
+<div class="container marginfeatured">
+    <div class="row">
+        <div class="col-md-12">
+            <h3 class="fontfeatured">FEATURED MOVIES</h3>
+            <slick init-onload='true' infinite="false" speed="300" slides-to-show="6" touch-move="false" slides-to-scroll="2"
+                   data="model.movie" class="slider multiple-items"
+                   autoplay="true" autoplaySpeed="5000">
+                <div ng-repeat="img in model.movie">
+
+                    <div class="figureimg">
+                        <ui-thumbnail src="img.cloudThumbUrl" opts="{width: 182, height: 268}"></ui-thumbnail>
+                        <div class="figcap">
+                            <a ng-click="model.watchMovieById(img._id)"><span class="cursorpointer figureplay text-center glyphicon glyphicon-play-circle"></span></a>
+                        </div>
+                    </div>
+
+                </div>
+            </slick>
+
+        </div>
+    </div>
+    </div>
+    <!-- End featured list -->
+
+    <!--movie nav tabs-->
+    <!-- Start movie list -->
+    <div class="container ">
+
+        <div class="row">
+            <div class="col-md-12 marginfeatured">
+
+            <ul class="nav nav-tabs">
+                <li role="presentation" ng-class="{active: model.featuretab}">
+                    <a class="cursorpointer" ng-click="model.movieNavTabs('feature')">Featured</a>
+                </li>
+                <li role="presentation" ng-class="{active: model.viewtab}">
+                    <a class="cursorpointer" ng-click="model.movieNavTabs('most')">Most viewed</a>
+                </li>
+                <li role="presentation" ng-class="{active: model.ratingtab}">
+                    <a class="cursorpointer" ng-click="model.movieNavTabs('top')">Top Rating</a>
+                </li>
+                <li role="presentation" ng-class="{active: model.recenttab}">
+                    <a class="cursorpointer" ng-click="model.movieNavTabs('recent')">Recently Added</a>
+                </li>
+
+
+                <li role="presentation" class="pull-right">
+                    <div class="searchselect searchselectrounded searchselectblack">
+                        <select ng-model="movieFilter">
+                            <option value="" selected>All</option>
+                            <option value="hindi">Hindi</option>
+                            <option value="kannada">Kannada</option>
+                            <option value="tamil">Tamil</option>
+                            <option value="telugu">Telugu</option>
+                        </select>
+                    </div>
+                </li>
+
+                <li role="presentation" class = "movieformsearch pull-right">
+                    <form class="form-inline">
+                        <input type="text" class="form-control" ng-model="model.movieSearch" placeholder="Search...">
+                    </form>
+                </li>
+
+            </ul>
+
+            <br>
+
+            <!-- Start Featured Tab -->
+            <div ng-show="model.featuretab" ng-repeat="image in model.movie | filter: {title: model.movieSearch}
+    | filter: {language: movieFilter}">
+                <div class="col-lg-2 col-sm-3 col-xs-4">
+
+                    <div class="figureimg imageshadow">
+                        <ui-thumbnail class="img img-responsive " src="image.cloudThumbUrl" opts="{width: 182, height: 268}"></ui-thumbnail>
+
+                        <div class="figcap">
+                            <a ng-click="model.watchMovieById(image._id)"><span class="cursorpointer figureplay text-center glyphicon glyphicon-play-circle"></span></a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!--End Featured Tab -->
+
+            <!-- Start View Tab -->
+            <div ng-show="model.viewtab" ng-repeat="image in model.movie | filter: {title: model.movieSearch}
+      | filter: {language: movieFilter}
+      | filter: model.viewNavTab('views', 0)
+      | orderBy: 'views': true">
+                <div class="col-lg-2 col-sm-3 col-xs-4 ">
+
+                    <div class="figureimg imageshadow">
+                        <ui-thumbnail class="img img-responsive" src="image.cloudThumbUrl" opts="{width: 182, height: 268}"></ui-thumbnail>
+
+                        <div class="figcap">
+                            <a ng-click="model.watchMovieById(image._id)"><span class="cursorpointer figureplay text-center glyphicon glyphicon-play-circle"></span></a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- End View Tab -->
+
+            <!-- Start Top Rating Tab -->
+            <div ng-show="model.ratingtab" ng-repeat="image in model.movie | filter: {title: model.movieSearch}
+          | filter: {language: movieFilter}
+          | filter: model.viewNavTab('rating', 0)
+          | orderBy: 'rating': true">
+                <div class="col-lg-2 col-sm-3 col-xs-4">
+
+                    <div class="figureimg imageshadow">
+                        <ui-thumbnail class="img img-responsive" src="image.cloudThumbUrl" opts="{width: 182, height: 268}"></ui-thumbnail>
+
+                        <div class="figcap">
+                            <a ng-click="model.watchMovieById(image._id)"><span class="cursorpointer figureplay text-center glyphicon glyphicon-play-circle"></span></a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!-- End Top Rating Tab -->
+
+            <!-- Start Top Recent Tab -->
+            <div ng-show="model.recenttab" ng-repeat="image in model.movie | filter: {title: model.movieSearch}
+          | filter: {language: movieFilter}
+          | orderBy: 'uploaded': true">
+                <div class="col-lg-2 col-sm-3 col-xs-4">
+
+                    <div class="figureimg imageshadow">
+                        <ui-thumbnail class="img img-responsive" src="image.cloudThumbUrl" opts="{width: 182, height: 268}"></ui-thumbnail>
+
+                        <div class="figcap">
+                            <a ng-click="model.watchMovieById(image._id)"><span class="cursorpointer figureplay text-center glyphicon glyphicon-play-circle"></span></a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <!-- End Top Recent Tab -->
+
+            </div>
+        </div>
+        <hr>
+    </div>
+
+    <!-- End movie list -->
+
+
+<!--footer start from here-->
+<div class="footer ">
+
+    <p class="footercontent pull-right">&copy; 2017 StudioBuzz. All rights reserved
+        &nbsp;</p>
+</div>
+<!--footer end from here-->

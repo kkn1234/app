@@ -1,0 +1,486 @@
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+
+              <a class="navbar-brand navfontfamily cursorpointer" ng-click="model.navHome()">
+                  Studi<i class="fa fa fa-play-circle-o icon-tby" aria-hidden="true"></i>Buzz</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a ng-click="model.navLogout()" class="cursorpointer">Logout</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<!-- End Navbar -->
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-3 col-md-2 sidebar">
+          <ul class="nav nav-sidebar">
+              <li><a href="#!/dashboard/{{model.userId}}/dashboard-home"><i class="fa fa-tachometer" aria-hidden="true"></i>&nbsp;&nbsp;Overview <span class="sr-only">(current)</span></a></li>
+              <li><a href="#!/dashboard/{{model.userId}}/dashboard-home/report"><i class="fa fa-list-ul" aria-hidden="true"></i>&nbsp;&nbsp;Revenue report</a></li>
+          </ul>
+
+          <ul class="nav nav-sidebar">
+              <li><a href="#!/dashboard/{{model.userId}}/dashboard-home/payment"><i class="fa fa-inr" aria-hidden="true"></i>&nbsp;&nbsp;Payment request</a></li>
+              <li class="active"><a href="#!/dashboard/{{model.userId}}/dashboard-home/upload"><i class="fa fa-upload" aria-hidden="true"></i>&nbsp;&nbsp;Upload</a></li>
+          </ul>
+        </div>
+
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 marginMovie">
+          <h3 class="text-center dashboardheadingstyle">UPLOAD</h3>
+
+                <div class="well well-sm wellborder panel-shadow">
+                <wizard on-finish="model.finishedWizard()" indicators-position='top'>
+                  <wz-step wz-title="Movie Detail">
+
+                <!--Start Movie info form-->
+                <div class="loginform">
+                    <div class="row">
+                      <div class="col-xs-10 col-xs-offset-1">
+                          <div class="marginall">
+                     <!--Start Form--><br>
+                     <form ng-submit="model.movieinfo(model.movie)">
+                      <div class="form-group ">
+                          <label class="control-label" for="name">
+                              Movie title
+                          </label>
+                          <input required class="form-control" ng-model="model.movie.title" id="name" placeholder="Enter movie name" type="text"/>
+                      </div>
+                      <div class="form-group ">
+                          <label class="control-label" for="textarea">
+                              Movie description
+                          </label>
+                          <textarea required class="form-control" ng-model="model.movie.description" cols="40" id="textarea" name="textarea" placeholder="Brief description about movie" rows="5"></textarea>
+                      </div>
+                      <div class="form-group ">
+                          <label class="control-label" for="select">
+                              Select a Language
+                          </label>
+                          <select required class="select form-control" id="select" ng-model="model.movie.language">
+                              <option value="">--Please Select Language--</option>
+                              <option value="Hindi">Hindi</option>
+                              <option value="Kannada">Kannada</option>
+                              <option value="Malayalam">Malayalam</option>
+                              <option value="Tamil">Tamil</option>
+                              <option value="Telugu">Telugu</option>
+                          </select>
+                      </div>
+
+                      <div class="form-group ">
+                          <label class="control-label" for="actor">
+                              Actors
+                          </label>
+                          <input required class="form-control" ng-model="model.movie.cast" id="actor"
+                             placeholder="Enter casting name" type="text"/>
+                      </div>
+                      <div class="form-group ">
+                          <label class="control-label" for="price">
+                              Price
+                          </label>
+                          <input required class="form-control" ng-model="model.movie.price" id="price"
+                             placeholder="Enter the amount per view" type="number"/>
+                      </div>
+
+                      <button ng-show="model.saveMovieInfoDisable" class="btn btn-danger pull-right marginall">Cancel</button>
+                      <button type="submit" ng-show="model.saveMovieInfoDisable"
+                        class="marginall btn btn-primary pull-right">Save</button>
+                       <a ng-hide="model.saveMovieInfoDisable"
+                              ng-click="model.changeLabelAndGoNext()"
+                          class='btn btn-default defaultBtn pull-right'>Next</a>
+
+                         <div ng-show="model.error" class="text-danger">
+                            <h5 class="text-center"><i class="fa fa-times" aria-hidden="true"></i> Data not saved and please try submitting again.</h5>
+                         </div>
+
+                                 <div class="pull-right marginall" ng-hide="model.saveMovieInfoDisable">
+                                 <span class="text-success marginall">
+                                     <i class="fa fa-check" aria-hidden="true"></i>
+                                     Saved
+                                 </span>
+                                 </div>
+                                 <div class="pull-right marginall" ng-show="model.spinMsg">
+                                 <i class="fa fa-spinner fa-pulse fa-3x fa-fw"></i>
+                                 <span class="sr-only">Loading...</span>
+                                 </div>
+
+
+                     </form>
+                      <!--Start Form-->
+
+                    </div>
+                  </div>
+                </div><!--End Movie info form-->
+                </div>
+              </wz-step>
+                      <!--End Movie info form-->
+
+                      <wz-step wz-title="Image upload">
+                        <!--Start Image upload form-->
+                        <div class="row">
+                            <div class="col-xs-10 col-xs-offset-1">
+                                <div class="loginform">
+                                    <div class="form-group">
+                                    <label class="control-label" >
+                                        Thumbnail Image
+                                    </label>
+                                <div class="input-group col-xs-12">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-picture"></i></span>
+                                    <input type="text" ng-model="model.thumbnailImage.name" class="form-control input-md" disabled
+                                       placeholder="Please upload thumnail Image of 280X180">
+                                    <span class="input-group-btn">
+                                         <button id="thumbnailfile"
+                                        class="browse btn btn-default input-md" type="button"
+                                        ngf-select ng-model="model.thumbnailImage"
+                                        name="imgthumb" ngf-pattern="'image/*'"
+                                        ngf-accept="'image/*'" ngf-resize="{width: 188, height: 288}"
+                                        ng-disabled="model.thumbnailFileDisable">
+                                        <i class="glyphicon glyphicon-folder-open"></i> &nbsp;Browse
+                                        </button>
+                                 </span>
+                                </div>
+                            </div>
+                                    <div class="row">
+                                      <div class="col-xs-10 col-xs-offset-1">
+                                        <div class="row">
+                                          <div class="col-xs-12">
+                                              <h4>
+                                                <span class="pull-right marginall" ng-show="model.successThumbUploadMsg">
+                                                <span class="text-success marginall">
+                                                <i class="fa fa-check" aria-hidden="true"></i>
+                                                Successfully! uploaded
+                                                </span>
+                                              </span>
+
+                                                 <span class="pull-right marginall" ng-show="model.failureThumbUploadMsg">
+                                                <span class="text-danger marginall">
+                                                <i class="fa fa-times" aria-hidden="true"></i>
+                                                {{model.uploadImgerror}}
+                                                </span>
+                                              </span>
+                                              </h4>
+                                            <div ng-show="model.displayThumbImageProgress">
+                                                <h4 class="text-success">Progress</h4>
+                                            <uib-progressbar value="model.UploadThumbImgProgressVal" type="info"
+                                                             class="marginall active progress-striped">
+                                                <span style="color:black; white-space:nowrap;">{{model.UploadThumbImgProgressVal}} %</span>
+                                            </uib-progressbar>
+                                            </div>
+                                          </div>
+                                        </div>
+                                          <div class="row">
+                                              <div class="col-xs-12">
+                                                  <a ng-show="model.thumbnailimgUploadbtn"
+                                                     ng-click="model.uploadThumbnailImg(model.thumbnailImage)"
+                                                     class="marginall btn btn-success pull-right">Upload</a>
+                                              </div>
+                                          </div>
+                                      </div>
+                                    </div>
+
+
+
+                        <div class="form-group">
+                                <label class="control-label">
+                                    Cover Image
+                                </label>
+                                <div class="input-group col-xs-12">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-picture"></i></span>
+                                        <input type="text" ng-model="model.file.cover.name" class="form-control input-md" disabled
+                                        placeholder="Please upload Cover Image of 1140X400">
+                                        <span class="input-group-btn">
+                                            <button id="coverfile" class="browse btn btn-default input-md"
+                                                type="button"
+                                                ngf-select ng-model="model.file.cover"
+                                                name="coverfile" ngf-resize="{width: 1140, height: 400}"
+                                                ngf-pattern="'image/*'" ngf-accept="'image/*'"
+                                                    ng-disabled="model.coverFileDisable">
+                                                <i class="glyphicon glyphicon-folder-open"></i> &nbsp;Browse
+                                            </button>
+                                        </span>
+                                </div>
+                            </div>
+
+                                    <div class="row">
+                                        <div class="col-xs-10 col-xs-offset-1">
+                                            <div class="row">
+                                                <div class="col-xs-12">
+                                                    <h4>
+                                                    <span class="pull-right marginall" ng-show="model.successCoverUploadMsg">
+                                                    <span class="text-success marginall">
+                                                    <i class="fa fa-check" aria-hidden="true"></i>
+                                                    Successfully! uploaded
+                                                    </span>
+                                                    </span>
+
+                                                 <span class="pull-right marginall" ng-show="model.failureCoverUploadMsg">
+                                                <span class="text-danger marginall">
+                                                <i class="fa fa-times" aria-hidden="true"></i>
+                                                {{model.uploadCovererror}}
+                                                </span>
+                                              </span>
+                                                    </h4>
+                                                    <div ng-show="model.displayCoverImageProgress">
+                                                        <h4 class="text-success">Progress</h4>
+                                                        <uib-progressbar value="model.UploadCoverImgProgressVal" type="info"
+                                                                         class="marginall active progress-striped">
+                                                            <span style="color:black; white-space:nowrap;">{{model.UploadCoverImgProgressVal}} %</span>
+                                                        </uib-progressbar>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-xs-12">
+                                                    <a ng-show="model.coverImgUploadbtn"
+                                                       ng-click="model.uploadCoverImg(model.file.cover)"
+                                                       class="marginall btn btn-success pull-right">Upload</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <a ng-click="model.changeLabelAndGoNext()" ng-show="model.imgUploadNext"
+                                   class='btn btn-default defaultBtn pull-right'>Next</a>
+                            </div>
+                        </div>
+                        <!--End Image upload form-->
+
+                      </wz-step>
+
+                      <wz-step wz-title="Video upload">
+                        <!--Start Video upload form-->
+
+                        <div class="row">
+                            <div class="col-xs-10 col-xs-offset-1">
+                                <div class="loginform">
+                                <div class="form-group">
+                                    <label class="control-label" >
+                                    Upload Video
+                                    </label>
+                                <div class="input-group col-xs-12">
+                                    <span class="input-group-addon"><i class="glyphicon glyphicon-facetime-video"></i></span>
+                                    <input type="text" ng-model="model.video.name" class="form-control input-md" disabled
+                                       placeholder="Please Upload Video file">
+                                    <span class="input-group-btn">
+                                        <button id="videofile" class="browse btn btn-default input-md"
+                                                type="button"
+                                                ngf-select ng-model="model.video"
+                                                name="videofile"
+                                                ngf-pattern="'video/*'" ngf-accept="'video/*'"
+                                                ng-disabled="model.videoFileDisable">
+                                                <i class="glyphicon glyphicon-folder-open"></i> Browse
+                                        </button>
+                                    </span>
+                                </div>
+                            </div>
+
+                                    <div class="row">
+                                        <div class="col-xs-10 col-xs-offset-1">
+                                            <div class="row">
+                                                <div class="col-xs-12">
+                                                    <h4>
+                                                      <span class="pull-right marginall" ng-show="model.successVideoUploadMsg">
+                                                      <span class="text-success marginall">
+                                                        <i class="fa fa-check" aria-hidden="true"></i>
+                                                        Successfully! uploaded
+                                                       </span>
+                                                       </span>
+
+                                                 <span class="pull-right marginall" ng-show="model.failureVideoUploadMsg">
+                                                <span class="text-danger marginall">
+                                                <i class="fa fa-times" aria-hidden="true"></i>
+                                                {{model.uploadVideorerror}}
+                                                </span>
+                                              </span>
+                                                    </h4>
+                                                    <div ng-show="model.displayVideoProgress">
+                                                        <h4 class="text-success">Progress</h4>
+                                                        <uib-progressbar value="model.UploadVideoProgressVal" type="info"
+                                                                         class="marginall active progress-striped">
+                                                            <span style="color:black; white-space:nowrap;">{{model.UploadVideoProgressVal}} %</span>
+                                                        </uib-progressbar>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-xs-12">
+                                                    <a ng-show="model.videoUploadbtn"
+                                                       ng-click="model.uploadVideo(model.video)"
+                                                       class="marginall btn btn-success pull-right">Upload</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                </div>
+                                <a ng-show="model.videoUploadNext" ng-click="model.changeLabelAndGoNext()"
+                                   class='btn btn-default defaultBtn pull-right' >Next</a>
+                            </div>
+                        </div>
+
+                        <!--End Video upload form-->
+                      </wz-step>
+
+
+                      <wz-step wz-title="Advertise">
+                        <!--Start Movie Promotion form-->
+                      <div class="row">
+                          <div class="col-xs-10 col-xs-offset-1">
+                              <div class="loginform">
+                                  <!--Start Form-->
+                                  <div class="row">
+                                      <div class="col-md-10 col-md-offset-1">
+
+                                  <h4 class="text-center text-warning">Please select the below options to advertise on website</h4>
+
+                                          <br>
+                                 <div class="row">
+                                  <div class="form-inline">
+                                      <div class="col-md-5">
+                                      <label class="control-label" for="coverAdvertise">
+                                          Ad on cover page
+                                      </label>
+
+                                          <div>
+                                              <small class="text-muted">Enabling option will display image in slide show.</small>
+                                          </div>
+                                          </div>
+                                  <div class="col-md-7">
+                                      <select class="form-control" id="coverAdvertise" ng-model="model.promotion.coverAd" name="select">
+                                          <option value="">--Select Option--</option>
+                                          <option value="yes">Yes</option>
+                                          <option value="no">No</option>
+                                      </select>
+
+                                  </div>
+                                  </div>
+                                 </div>
+                                          <br>
+
+                                          <div class="row">
+                                  <div class="form-inline">
+                                      <div class="col-md-5">
+                                          <label class="control-label" for="landingPageAdvertise">
+                                          Ad on landing page
+                                          </label>
+                                          <div>
+                                              <small class="text-muted">Enabling option will add thumbnail image on website default page.</small>
+                                          </div>
+                                       </div>
+                                      <div class="col-md-7">
+                                      <select class="form-control" id="landingPageAdvertise"
+                                              ng-model="model.promotion.landingpageAd" name="select">
+                                          <option value="">--Select Option--</option>
+                                          <option value="yes">Yes</option>
+                                          <option value="no">No</option>
+                                      </select>
+                                      </div>
+                                  </div>
+                                  </div>
+                                          <br>
+                                      <div class="row">
+                                      <div class="form-inline">
+                                          <div class="col-md-5">
+                                          <label class="control-label" for="featuredListAdvertise">
+                                          Ad on Featured List
+                                          </label>
+                                          <div>
+                                              <small class="text-muted">Enabling option will list movie under on featured list.</small>
+                                          </div>
+                                       </div>
+                                      <div class="col-md-7">
+                                          <select class="form-control" id="featuredListAdvertise"
+                                                  ng-model="model.promotion.featuredlistAd" name="select">
+                                          <option value="">--Select Option--</option>
+                                          <option value="yes">Yes</option>
+                                          <option value="no">No</option>
+                                      </select>
+                                      </div>
+                                  </div>
+                                  </div>
+                                          <!--Save data-->
+                                          <h4>
+                                              <span class="pull-right marginall" ng-show="model.successAdUploadMsg">
+                                                  <span class="text-success marginall">
+                                                      <i class="fa fa-check" aria-hidden="true"></i>
+                                                      Update successful
+                                                  </span>
+                                              </span>
+                                          </h4>
+
+                                              <div class="panel-body" ng-show="model.adBtn">
+                                              <small>*Terms and conditions apply</small>
+                                              <a class="btn btn-success pull-right marginall"
+                                                 ng-click="model.videoCancelPromotion()">No, Thanks</a>
+                                              <a ng-click="model.videoPromotion(model.promotion)"
+                                                 class="marginall btn btn-primary pull-right">Advertise</a>
+                                          </div>
+
+                                      </div>
+                                  </div>
+
+                                  <!--Start Form-->
+                              </div>
+                              <a ng-click="model.changeLabelAndGoNext()"
+                                     ng-show="model.adBtnNext"
+                                 class='btn btn-default defaultBtn pull-right'>Next</a>
+                          </div>
+                      </div>
+
+
+                      <!--End Movie Promotion form-->
+                      </wz-step>
+
+                      <wz-step wz-title="Publish">
+                        <!--Start Publish process-->
+
+                        <div class="row" ng-hide="model.publishTab">
+                          <div class="col-xs-10 col-xs-offset-1">
+                            <div class="loginform">
+                              <h3 class="text-info text-center">Successful</h3>
+                              <h4 class="text-center text-success">Please click publish to complete the process.</h4>
+                              <p class="text-center text-muted">*Your video will go live after approval.</p>
+                            </div>
+                              <a ng-hide="model.publishTab" ng-click="model.publishVideo()"
+                                 class='btn btn-success btn-lg pull-right' >Publish</a>
+                          </div>
+                        </div>
+
+                        <div class="row" ng-show="model.publishTab">
+                          <div class="col-xs-10 col-xs-offset-1">
+                            <div class="loginform">
+                              <h3 class="text-info text-center">Completed</h3>
+                              <h4 class="text-center text-success">Thanks for choosing StudioBuzz.</h4>
+                              <p class="text-center text-success">Now you can check your visitor activity under overview.</p>
+                            </div>
+                          </div>
+                        </div>
+
+
+                        <!--End Publish process-->
+                      </wz-step>
+                    </wizard>
+                    <br>
+                    <br>
+                  </div>
+                </div>
+    </div>
+</div>
+
+
+
+<!--footer start from here-->
+<div class="footer ">
+
+    <p class="footercontent pull-right">&copy; 2017 StudioBuzz. All rights reserved
+        &nbsp;</p>
+</div>
+<!--footer end from here-->
