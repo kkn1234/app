@@ -474,7 +474,7 @@ box-shadow: inset #f5f5f5 0px 0px 12px 2px;
 
 /*slick image slider*/
 #content{
-padding-top: 120px;
+padding-top: 44px;
 text-align: center;
 }
 
@@ -485,7 +485,7 @@ text-align: center;
 }
 
 .fontsize{
-  font-size: 19px;
+  font-size: 17px;
 }
 
 /*Start sticky footer*/
@@ -500,7 +500,7 @@ background-color: rgba(204, 204, 204, 0.63);
 .footercontent{
   margin-top: 14px;
   margin-right: 12px;
-  font-size: 16px;
+  font-size: 12px;
   color: #777;
 }
 .footercontent a{
@@ -574,7 +574,7 @@ background-color: rgba(204, 204, 204, 0.63);
 
 .navfontfamily{
   font-family: 'Roboto', sans-serif;
-  font-size: 20px;
+  font-size: 17px;
   padding-right: 2px;
 }
 
@@ -588,7 +588,7 @@ background-color: rgba(204, 204, 204, 0.63);
   /*margin-top: 1px;*/
   /*color: #5cb85c;*/
  color: #5192b2;
-    font-size: 16px;
+    font-size: 14px;
 }
 
 .navbar-inverse .navbar-text{
