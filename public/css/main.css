@@ -586,9 +586,9 @@ background-color: rgba(204, 204, 204, 0.63);
 .icon-tby{
   /*padding-right: 2px;*/
   /*margin-top: 1px;*/
-  /*color: #5cb85c;*/
- color: #5192b2;
-    font-size: 14px;
+  color: #5cb85c;
+ /*color: #5192b2;*/
+    font-size: 13px;
 }
 
 .navbar-inverse .navbar-text{
@@ -597,6 +597,6 @@ background-color: rgba(204, 204, 204, 0.63);
 }
 
 .navbar-inverse .navbar-brand:focus, .navbar-inverse .navbar-brand:hover {
-    color: #d9d9d9;
+    color: #5cb85c;
     background-color: transparent;
 }
